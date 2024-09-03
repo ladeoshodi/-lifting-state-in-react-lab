@@ -1,3 +1,6 @@
+import { useState } from "react";
+import IngredientList from "./components/IngredientList";
+import BurgerStack from "./components/BurgerStack";
 import "./App.css";
 
 export const availableIngredients = [
@@ -18,10 +21,28 @@ export const availableIngredients = [
 ];
 
 const App = () => {
+  const [ingredients, setIngredients] = useState(availableIngredients);
+  const [burger, setBurger] = useState([]);
+
+  function addToBurger(ingredient) {
+    const newBurger = structuredClone(burger);
+    newBurger.unshift(ingredient);
+    setBurger(newBurger);
+  }
+
+  function removeFromBurger(ingredientIdx) {
+    const currentBurger = structuredClone(burger);
+    currentBurger.splice(ingredientIdx, 1);
+    setBurger(currentBurger);
+  }
+
   return (
     <main>
       <h1>Burger Stacker</h1>
-      <section>{/* List & Stack components */}</section>
+      <section>
+        <IngredientList ingredients={ingredients} addToBurger={addToBurger} />
+        <BurgerStack burger={burger} removeFromBurger={removeFromBurger} />
+      </section>
     </main>
   );
 };
