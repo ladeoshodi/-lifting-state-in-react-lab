@@ -1,3 +1,5 @@
+import Ingredient from "./Ingredient";
+
 const IngredientList = ({ ingredients, addToBurger }) => {
   return (
     <ul>
@@ -11,8 +13,7 @@ const IngredientList = ({ ingredients, addToBurger }) => {
             }}
             onClick={() => addToBurger(ingredient)}
           >
-            <div>{ingredient.name}</div>{" "}
-            <div style={{ fontSize: "1.3rem" }}>+</div>
+            <Ingredient ingredient={ingredient} isIngredient={true} />
           </li>
         );
       })}

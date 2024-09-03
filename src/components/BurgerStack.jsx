@@ -1,4 +1,5 @@
-// `src/components/BurgerStack.jsx`
+import Ingredient from "./Ingredient";
+
 const BurgerStack = ({ burger, removeFromBurger }) => {
   return (
     <ul>
@@ -12,8 +13,7 @@ const BurgerStack = ({ burger, removeFromBurger }) => {
             }}
             onClick={() => removeFromBurger(index)}
           >
-            <div>{ingredient.name}</div>{" "}
-            <div style={{ fontSize: "1.3rem" }}>x</div>
+            <Ingredient ingredient={ingredient} isIngredient={false} />
           </li>
         );
       })}

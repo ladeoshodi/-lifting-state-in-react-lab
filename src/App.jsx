@@ -21,7 +21,6 @@ export const availableIngredients = [
 ];
 
 const App = () => {
-  const [ingredients, setIngredients] = useState(availableIngredients);
   const [burger, setBurger] = useState([]);
 
   function addToBurger(ingredient) {
@@ -40,7 +39,10 @@ const App = () => {
     <main>
       <h1>Burger Stacker</h1>
       <section>
-        <IngredientList ingredients={ingredients} addToBurger={addToBurger} />
+        <IngredientList
+          ingredients={availableIngredients}
+          addToBurger={addToBurger}
+        />
         <BurgerStack burger={burger} removeFromBurger={removeFromBurger} />
       </section>
     </main>
