@@ -1,6 +1,13 @@
 import Ingredient from "./Ingredient";
 
 const BurgerStack = ({ burger, removeFromBurger }) => {
+  if (!burger.length)
+    return (
+      <div style={{ border: "1px dotted red", padding: "8px" }}>
+        Missing Ingredients 😢, select ingredients on the left to build your
+        burger 🍔!
+      </div>
+    );
   return (
     <ul>
       {burger.map((ingredient, index) => {
